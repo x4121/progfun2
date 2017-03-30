@@ -31,10 +31,10 @@ object Lists {
    */
     def max(xs: List[Int]): Int = {
       @tailrec
-      def max(xs: List[Int], cur: Int): Int = xs match {
+      def max(cur: Int, xs: List[Int]): Int = xs match {
         case List() => cur
-        case head :: tail => max(tail, Math.max(head, cur))
+        case head :: tail => max(Math.max(head, cur), tail)
       }
-      max(xs.tail, xs.head)
+      max(xs.head, xs.tail)
     }
   }
